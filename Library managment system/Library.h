@@ -1,2 +1,17 @@
 #pragma once
-class Library;
+#include "Book.h"
+#include <vector>
+#include <iostream>
+#include <string>
+
+class Library : public Book {
+private:
+	std::vector<Book> books;
+public:
+	Library();
+	void AddBook(std::string title, std::string author, int publication_year, std::string isbn);
+	void RemoveBook();
+	void UpdateBook();
+	void ShowBooks();
+	~Library();
+};
