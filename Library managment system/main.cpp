@@ -1,8 +1,10 @@
 #include <iostream>
 #include <string>
 #include "Book.h"
-
+#include "FileIO.h"
+#include "Library.h"
 int main() {
-	Book kniga("ime", "avtor", 1900, "ISBN");
+	Library MyLib = readData();
+	MyLib.ShowBooks();
 	return 0;
 }

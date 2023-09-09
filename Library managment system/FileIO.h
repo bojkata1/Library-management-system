@@ -7,5 +7,5 @@
 #include "Book.h"
 #include "Library.h"
 
-void readData();
+Library readData();
 void saveData(std::vector<Book> books);

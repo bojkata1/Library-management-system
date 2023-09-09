@@ -1,6 +1,6 @@
 #include "FileIO.h"
 
-void readData() {
+Library readData() {
 	std::string title, author, isbn, publication_year;
 	Library Lib1;
 	std::ifstream LibraryData("Library_data.csv");
@@ -13,6 +13,7 @@ void readData() {
 		getline(line, isbn, ';');
 		Lib1.AddBook(title, author, stoi(publication_year), isbn);
 	}
+	return Lib1;
 }
 
 void saveData(){
