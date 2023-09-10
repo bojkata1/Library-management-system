@@ -5,6 +5,11 @@ VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Library managment system", "Library managment system\Library managment system.vcxproj", "{A1FA668A-F470-4AA0-8142-2CFAA9CC4B56}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D91918F1-F273-4E10-A18C-69EDA64295C9}"
+	ProjectSection(SolutionItems) = preProject
+		Library managment system\Library_data.csv = Library managment system\Library_data.csv
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64

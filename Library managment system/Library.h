@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-class Library : public Book {
+class Library {
 private:
 	std::vector<Book> books;
 public:

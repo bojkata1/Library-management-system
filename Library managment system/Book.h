@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <iostream>
 
 class Book {
 private:
@@ -9,11 +10,12 @@ private:
 	int publicationYear;
 	std::string isbn;
 public:
+	Book();
 	Book(std::string title, std::string author, int publication_year, std::string isbn);
-	std::string GetTitle();
-	std::string GetAuthor();
-	int GetPublicationYear();
-	std::string GetIsbn();
+	std::string GetTitle() const;
+	std::string GetAuthor() const;
+	int GetPublicationYear() const;
+	std::string GetIsbn() const;
 	void SetTitle();
 	void SetAuthor();
 	void SetPublicationYear();

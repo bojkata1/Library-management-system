@@ -2,20 +2,25 @@
 Book::Book(std::string title, std::string author, int publicationyear, std::string isbn) {
     this->title = title;
     this->author = author;
-    this->publicationYear = publicationYear;
+    this->publicationYear = publicationyear;
     this->isbn = isbn;
 }
-
-std::string Book::GetTitle() {
+Book::Book() {
+    title = "";
+    author = "";
+    publicationYear = 0;
+    isbn = "";
+}
+std::string Book::GetTitle() const {
     return title;
 }
-std::string Book::GetAuthor() {
+std::string Book::GetAuthor() const {
     return author;
 }
-int Book::GetPublicationYear() {
+int Book::GetPublicationYear() const {
     return publicationYear;
 }
-std::string Book::GetIsbn() {
+std::string Book::GetIsbn() const {
     return isbn;
 }
 
