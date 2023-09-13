@@ -81,7 +81,6 @@ void Library::UpdateBook() {
 		}
 		for (Book& book : books) {
 			system("cls");
-			std::string ime = book.GetTitle();
 			if (book.GetIsbn() == command || book.GetTitle() == command) {
 				std::cout << "Title: " << book.GetTitle() << ", Author: " << book.GetAuthor()
 					<< ", Publication year: " << book.GetPublicationYear() << ", ISBN: " << book.GetIsbn() << std::endl;
