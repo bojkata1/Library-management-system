@@ -17,6 +17,7 @@ public:
 	int GetPublicationYear() const;
 	std::string GetIsbn() const;
 	void SetTitle();
+	void SetTitle(std::string userInput);
 	void SetAuthor();
 	void SetPublicationYear();
 	void SetIsbn();

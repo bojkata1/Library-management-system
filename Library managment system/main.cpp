@@ -12,7 +12,7 @@ int main() {
 		std::cout << "Command line: "; std::getline(std::cin, command);
 		system("cls");
 		if (command == "AddBooks") {
-			std::string title, author, year, isbn;
+			MyLib.AddBook();
 		}
 		else if (command == "RemoveBooks") {
 			MyLib.RemoveBook();

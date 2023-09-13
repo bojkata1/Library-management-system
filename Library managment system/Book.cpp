@@ -29,27 +29,33 @@ void Book::SetTitle() {
     getline(std::cin, userInput);
     title = userInput;
 }
+void Book::SetTitle(std::string userInput) {
+    title = userInput;
+}
 void Book::SetAuthor() {
     std::string userInput;
     getline(std::cin, userInput);
     author = userInput;
 }
 void Book::SetPublicationYear() {
-    std::string userInput;
-    bool isDigit = true;
-    getline(std::cin, userInput);
-    for (int i = 0; i < userInput.size(); i++) {
-        if (isdigit(userInput[i]) == true) {
-            isDigit = false;
+    do {
+        std::string userInput;
+        bool isDigit = true;
+        getline(std::cin, userInput);
+        for (int i = 0; i < userInput.size(); i++) {
+            if (isdigit(userInput[i]) == false) {
+                isDigit = false;
+                break;
+            }
+        }
+        if (isDigit) {
+            publicationYear = stoi(userInput);
             break;
         }
-    }
-    if (isDigit){
-        publicationYear = stoi(userInput);
-    }
-    else {
-        std::cout << "Enter a valid year!" << std::endl;
-    }
+        else {
+            std::cout << "Enter a valid year!: ";
+        }
+    } while (true);
 }
 void Book::SetIsbn() {
     std::string userInput;

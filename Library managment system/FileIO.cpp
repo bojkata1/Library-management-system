@@ -11,7 +11,7 @@ Library readData() {
 		getline(line, author, ';');
 		getline(line, publication_year, ';');
 		getline(line, isbn, ';');
-		Lib1.AddBook(title, author, stoi(publication_year), isbn);
+		Lib1.LoadBook(title, author, stoi(publication_year), isbn);
 	}
 	return Lib1;
 }
