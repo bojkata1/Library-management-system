@@ -16,8 +16,13 @@ Library readData() {
 	return Lib1;
 }
 
-void saveData(){
-	
-
-
+void saveData(std::vector<Book> books){
+	std::ofstream OutputFile("Library_data.csv");
+	for (const Book book : books) {
+		OutputFile << book.GetTitle() << ";";
+		OutputFile << book.GetAuthor() << ";";
+		OutputFile << book.GetPublicationYear() << ";";
+		OutputFile << book.GetIsbn() << ";";
+		OutputFile << std::endl;
+	}
 }

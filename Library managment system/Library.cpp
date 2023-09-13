@@ -4,6 +4,10 @@ Library::Library() {
 	std::cout << "";
 }
 
+std::vector<Book> Library::GetBooks() {
+	return books;
+}
+
 void Library::LoadBook(std::string title, std::string author, int publication_year, std::string isbn) {
 	Book NewBook(title, author, publication_year, isbn);
 	books.push_back(NewBook);
@@ -14,7 +18,7 @@ void Library::AddBook() {
 		ShowBooks();
 		Book NewBook;		
 		std::string command;
-		std::cout << "Enter \"stop\" to exit the command";
+		std::cout << "Enter \"stop\" to exit the command" << std::endl;
 		std::cout << "Enter the book's title: ";
 		getline(std::cin, command);
 		if (command == "stop") {
@@ -85,7 +89,7 @@ void Library::UpdateBook() {
 				getline(std::cin, command);
 				if (command == "title") {
 					std::cout << "Enter the book's new title: ";
-						book.SetTitle();
+					book.SetTitle();
 				}
 				else if (command == "author") {
 					std::cout << "Enter the book's new author: ";
