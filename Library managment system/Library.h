@@ -15,5 +15,7 @@ public:
 	void RemoveBook();
 	void UpdateBook();
 	void ShowBooks();
+	void SortBooks();
+	void SearchBook();
 	~Library();
 };

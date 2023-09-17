@@ -118,4 +118,12 @@ void Library::ShowBooks() {
 	}
 }
 
+void Library::SortBooks() {
+	std::cout << "Sort by (author, title, year): ";
+}
+
+void Library::SearchBook() {
+
+}
+
 Library::~Library(){}
