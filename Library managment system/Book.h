@@ -21,5 +21,6 @@ public:
 	void SetAuthor();
 	void SetPublicationYear();
 	void SetIsbn();
+	void ShowInfo () const;
 	~Book();
 };

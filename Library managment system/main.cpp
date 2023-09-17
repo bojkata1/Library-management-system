@@ -8,7 +8,7 @@ int main() {
 		Library MyLib = readData();
 		MyLib.ShowBooks();
 		std::cout << std::endl;
-		std::cout << "Command list: AddBooks, RemoveBooks, UpdateBooks, exit" << std::endl;
+		std::cout << "Command list: AddBooks, RemoveBooks, UpdateBooks, SortBooks, SearchBook, exit" << std::endl;
 		std::cout << "Command line: "; std::getline(std::cin, command);
 		system("cls");
 		if (command == "exit") {
@@ -24,6 +24,14 @@ int main() {
 		}
 		else if (command == "UpdateBooks") {
 			MyLib.UpdateBook();
+			saveData(MyLib.GetBooks());
+		}
+		else if (command == "SortBooks") {
+			MyLib.SortBooks();
+			saveData(MyLib.GetBooks());
+		}
+		else if (command == "SearchBook") {
+			MyLib.SearchBook();
 			saveData(MyLib.GetBooks());
 		}
 		system("cls");

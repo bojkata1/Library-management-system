@@ -63,4 +63,9 @@ void Book::SetIsbn() {
     isbn = userInput;
 }
 
+void Book::ShowInfo() const {
+    std::cout << "Title: " << title << ", Author: " << author
+        << ", Publication year: " << publicationYear << ", ISBN: " << isbn << std::endl << std::endl;
+}
+
 Book::~Book(){}

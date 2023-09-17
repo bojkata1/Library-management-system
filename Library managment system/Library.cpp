@@ -112,18 +112,103 @@ void Library::UpdateBook() {
 }
 void Library::ShowBooks() {
 	std::cout << "Books:" << std::endl;
-	for (const Book book : books) {
-		std::cout << "Title: " << book.GetTitle() << ", Author: " << book.GetAuthor()
-		<< ", Publication year: " << book.GetPublicationYear() << ", ISBN: " << book.GetIsbn() << std::endl << std::endl;
+	for (Book& book : books) {
+		book.ShowInfo();
 	}
 }
 
 void Library::SortBooks() {
-	std::cout << "Sort by (author, title, year): ";
+	std::string command;
+	std::cout << "Sort by (title, author, year): ";
+	getline(std::cin, command);
+	if (command == "title") {
+		std::sort(books.begin(), books.end(), [](Book book1, Book book2){
+			return book1.GetTitle() < book2.GetTitle();
+		});	
+		ShowBooks();
+		std::cout << "Enter \"reverse\" to reverse the sorting order or press \"Enter\" to continue to the main menu: ";
+		getline(std::cin, command);
+		if (command == "reverse") {
+			std::sort(books.begin(), books.end(), [](Book book1, Book book2) {
+				return book1.GetTitle() > book2.GetTitle();
+			});
+		}
+	}
+	else if (command == "author") {
+		std::sort(books.begin(), books.end(), [](Book book1, Book book2) {
+			return book1.GetAuthor() < book2.GetAuthor();
+		});
+		ShowBooks();
+		std::cout << "Enter \"reverse\" to reverse the sorting order or press \"Enter\" to continue to the main menu: ";
+		getline(std::cin, command);
+		if (command == "reverse") {
+			std::sort(books.begin(), books.end(), [](Book book1, Book book2) {
+				return book1.GetAuthor() > book2.GetAuthor();
+			});
+		}
+	}
+	else if (command == "year") {
+		std::sort(books.begin(), books.end(), [](Book book1, Book book2) {
+			return book1.GetPublicationYear() < book2.GetPublicationYear();
+		});
+		ShowBooks();
+		std::cout << "Enter \"reverse\" to reverse the sorting order or press \"Enter\" to continue to the main menu: ";
+		getline(std::cin, command);
+		if (command == "reverse") {
+			std::sort(books.begin(), books.end(), [](Book book1, Book book2) {
+				return book1.GetPublicationYear() > book2.GetPublicationYear();
+			});
+		}
+	}
 }
 
 void Library::SearchBook() {
-
+	std::string command;
+	std::vector<Book> results;
+	std::cout << "Search by (title, author, year): ";
+	getline(std::cin, command);
+	if (command == "title") {
+		std::cout << "Enter the book's title: ";
+		getline(std::cin, command);
+		for (const Book book : books) {
+			if (book.GetTitle().find(command)) {
+				results.push_back(book);
+			}
+		}
+	}
+	else if (command == "author") {
+		std::cout << "Enter the author's name: ";
+		getline(std::cin, command);
+		for (const Book book : books) {
+			if (book.GetAuthor().find(command)) {
+				results.push_back(book);
+			}
+		}
+	}
+	else if (command == "year") {
+		std::cout << "Enter the book's publication year: ";
+		getline(std::cin, command);
+		for (const Book book : books) {
+			try {
+				if (book.GetPublicationYear() == stoi(command)) {
+					results.push_back(book);
+				}
+			} catch(...) {
+				std::cout << "Invalid number!!!" << std::endl;
+			}
+		}
+	}
+	int size = results.size();
+	if (size != 0) {
+		std::cout << "There are " << size << " matches!" << std::endl << std::endl;
+		for (const Book book : results) {
+			book.ShowInfo();
+		}
+	}
+	else {
+		std::cout << "No results found!" << std::endl;
+	}
+	system("pause");
 }
 
 Library::~Library(){}
