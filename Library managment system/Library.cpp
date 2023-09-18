@@ -195,6 +195,7 @@ void Library::SearchBook() {
 				}
 			} catch(...) {
 				std::cout << "Invalid number!!!" << std::endl;
+				break;
 			}
 		}
 	}
