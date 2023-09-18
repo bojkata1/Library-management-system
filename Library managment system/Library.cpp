@@ -171,7 +171,7 @@ void Library::SearchBook() {
 		std::cout << "Enter the book's title: ";
 		getline(std::cin, command);
 		for (const Book book : books) {
-			if (book.GetTitle().find(command)) {
+			if (book.GetTitle().find(command) < book.GetTitle().size()) {
 				results.push_back(book);
 			}
 		}
@@ -180,7 +180,7 @@ void Library::SearchBook() {
 		std::cout << "Enter the author's name: ";
 		getline(std::cin, command);
 		for (const Book book : books) {
-			if (book.GetAuthor().find(command)) {
+			if (book.GetAuthor().find(command) < book.GetTitle().size()) {
 				results.push_back(book);
 			}
 		}
