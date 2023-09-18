@@ -111,9 +111,14 @@ void Library::UpdateBook() {
 	} while (true);
 }
 void Library::ShowBooks() {
-	std::cout << "Books:" << std::endl;
-	for (Book& book : books) {
-		book.ShowInfo();
+	if (books.size() == 0) {
+		std::cout << "The Library is empty!" << std::endl;
+	}
+	else {
+		std::cout << "Books:" << std::endl;
+		for (Book& book : books) {
+			book.ShowInfo();
+		}
 	}
 }
 
@@ -171,7 +176,7 @@ void Library::SearchBook() {
 		std::cout << "Enter the book's title: ";
 		getline(std::cin, command);
 		for (const Book book : books) {
-			if (book.GetTitle().find(command) < book.GetTitle().size()) {
+			if (book.GetTitle().find(command) != std::string::npos) {
 				results.push_back(book);
 			}
 		}
@@ -180,7 +185,7 @@ void Library::SearchBook() {
 		std::cout << "Enter the author's name: ";
 		getline(std::cin, command);
 		for (const Book book : books) {
-			if (book.GetAuthor().find(command) < book.GetTitle().size()) {
+			if (book.GetAuthor().find(command) != std::string::npos) {
 				results.push_back(book);
 			}
 		}
