@@ -124,7 +124,7 @@ void Library::ShowBooks() {
 
 void Library::SortBooks() {
 	std::string command;
-	std::cout << "Sort by (title, author, year): ";
+	std::cout << "Sort by (title, author, year): " << std::endl;
 	getline(std::cin, command);
 	if (command == "title") {
 		std::sort(books.begin(), books.end(), [](Book book1, Book book2){
