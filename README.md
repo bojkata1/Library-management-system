@@ -17,3 +17,6 @@ Allows the user to sort the books by their title, author or year of publication.
 
 ### SearchBook
 Allows the user to find details about a book in the library, by entering its title or ISBN.
+
+### exit
+Closes the program
