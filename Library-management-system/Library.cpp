@@ -8,11 +8,13 @@ std::vector<Book> Library::GetBooks() {
 	return books;
 }
 
+// Creates a book object and adds it to the library (vector)
 void Library::LoadBook(std::string title, std::string author, int publication_year, std::string isbn) {
 	Book NewBook(title, author, publication_year, isbn);
 	books.push_back(NewBook);
 }
 
+// AddBooks command - allows the user to enter add a book to the library
 void Library::AddBook() {
 	do {
 		ShowBooks();
@@ -36,6 +38,7 @@ void Library::AddBook() {
 	} while (true);
 }
 
+// RemoveBooks command - allows the user to remove books from the library
 void Library::RemoveBook() {
 	do {
 		ShowBooks();
@@ -64,11 +67,13 @@ void Library::RemoveBook() {
 		system("cls");
 	} while (true);
 }
+
+// UpdateBooks command - allows the user to change some of the info of a book in the library
 void Library::UpdateBook() {
 	do {
 		ShowBooks();
 		std::string command;
-		std::cout << "Enter \"stop\" to exit the command";
+		std::cout << "Enter \"stop\" to exit the command" << std::endl;
 		std::cout << "Enter \"isbn\" to search by ISBN" << std::endl;
 		std::cout << "Enter the title of the book You want to update: ";
 		getline(std::cin, command);
@@ -110,6 +115,8 @@ void Library::UpdateBook() {
 		system("cls");
 	} while (true);
 }
+
+// Displays all of the books in the library
 void Library::ShowBooks() {
 	if (books.size() == 0) {
 		std::cout << "The Library is empty!" << std::endl;
@@ -122,11 +129,12 @@ void Library::ShowBooks() {
 	}
 }
 
+// SortBooks command - allows the user to sort the books by one of their attributes
 void Library::SortBooks() {
 	std::string command;
 	std::cout << "Sort by (title, author, year): " << std::endl;
 	getline(std::cin, command);
-	if (command == "title") {
+	if (command == "title") { // sorts by title
 		std::sort(books.begin(), books.end(), [](Book book1, Book book2){
 			return book1.GetTitle() < book2.GetTitle();
 		});	
@@ -139,7 +147,7 @@ void Library::SortBooks() {
 			});
 		}
 	}
-	else if (command == "author") {
+	else if (command == "author") { // sorts by author
 		std::sort(books.begin(), books.end(), [](Book book1, Book book2) {
 			return book1.GetAuthor() < book2.GetAuthor();
 		});
@@ -152,7 +160,7 @@ void Library::SortBooks() {
 			});
 		}
 	}
-	else if (command == "year") {
+	else if (command == "year") { // sorts by year of publication
 		std::sort(books.begin(), books.end(), [](Book book1, Book book2) {
 			return book1.GetPublicationYear() < book2.GetPublicationYear();
 		});
@@ -167,6 +175,7 @@ void Library::SortBooks() {
 	}
 }
 
+//SearchBook command - allows the user to search for a book by its title or ISBN
 void Library::SearchBook() {
 	std::string command;
 	std::vector<Book> results;

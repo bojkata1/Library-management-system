@@ -11,6 +11,8 @@ Book::Book() {
     publicationYear = 0;
     isbn = "";
 }
+
+// Getters
 std::string Book::GetTitle() const {
     return title;
 }
@@ -24,6 +26,7 @@ std::string Book::GetIsbn() const {
     return isbn;
 }
 
+ // Setters 
 void Book::SetTitle() {
     std::string userInput;
     getline(std::cin, userInput);
@@ -42,6 +45,7 @@ void Book::SetPublicationYear() {
         std::string userInput;
         bool isDigit = true;
         getline(std::cin, userInput);
+        // Validates user's input
         for (int i = 0; i < userInput.size(); i++) {
             if (isdigit(userInput[i]) == false) {
                 isDigit = false;
@@ -63,6 +67,7 @@ void Book::SetIsbn() {
     isbn = userInput;
 }
 
+ // Displays details about the book
 void Book::ShowInfo() const {
     std::cout << "Title: " << title << ", Author: " << author
         << ", Publication year: " << publicationYear << ", ISBN: " << isbn << std::endl << std::endl;

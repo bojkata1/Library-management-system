@@ -1,5 +1,6 @@
 #include "FileIO.h"
 
+// reads data from Library_data.csv
 Library readData() {
 	std::string title, author, isbn, publication_year;
 	Library Lib1;
@@ -16,6 +17,7 @@ Library readData() {
 	return Lib1;
 }
 
+// saves the data in Library_data.csv
 void saveData(std::vector<Book> books){
 	std::ofstream OutputFile("Library_data.csv");
 	for (const Book book : books) {
