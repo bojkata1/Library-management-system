@@ -7,7 +7,7 @@ A simple console application for management of a personal library. The user can 
 Allows the user to add books to the library. To exit the command, the user must enter "exit".
 
 ### RemoveBooks
-Allows the user to remove books in the library. The user can search for the book by its title or ISBN. To exit the command, the user must enter "exit".
+Allows the user to remove books from the library. The user can search for the book by its title or ISBN. To exit the command, the user must enter "exit".
 
 ### UpdateBooks
 Allows the user to update book's info. The user can search for the book by its title or ISBN. To exit the command, the user must enter "exit".
